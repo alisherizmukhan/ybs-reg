@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Agreement from './Agreement';
+import Location from './Location';
 import '../fonts.css';
 
 const Register = () => {
@@ -9,6 +10,7 @@ const Register = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showLocation, setShowLocation] = useState(false);
   const [isAgreed, setIsAgreed] = useState(false);
 
   const handleChange = (e) => {
@@ -33,7 +35,11 @@ const Register = () => {
         body: JSON.stringify(formData),
       });
       const data = await response.json();
-      alert(data.message);
+      if (response.ok) {
+        setShowLocation(true);
+      } else {
+        alert(data.message);
+      }
     } catch (error) {
       console.error("Error:", error);
       alert("Failed to register");
@@ -111,6 +117,16 @@ const Register = () => {
             </label>
           </div>
 
+          {/* Test Button */}
+          <button
+            type="button"
+            onClick={() => setShowLocation(true)}
+            className="w-full py-3 rounded-lg text-lg font-bold text-white bg-purple-600 hover:bg-purple-500
+                     transition-all duration-300 transform hover:scale-105 active:scale-95"
+          >
+            Test Location Modal
+          </button>
+
           <button
             type="submit"
             disabled={isLoading || !isAgreed}
@@ -129,11 +145,16 @@ const Register = () => {
         </form>
       </div>
 
-      {/* Modal */}
+      {/* Agreement Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50">
           <Agreement onClose={() => setIsModalOpen(false)} />
         </div>
+      )}
+
+      {/* Location Modal */}
+      {showLocation && (
+        <Location onClose={() => setShowLocation(false)} />
       )}
 
       <style jsx>{`
