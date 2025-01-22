@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Agreement from './Agreement';
 import '../fonts.css';
 
 const Register = () => {
@@ -40,11 +41,6 @@ const Register = () => {
       setIsLoading(false);
     }
   };
-
-  const agreement = `FINAL AGREEMENT
-                        [PLAYER'S CONTRACT]
-WARNING: READ CAREFULLY BEFORE PROCEEDING
-...`; // Add the full agreement text here
 
   return (
     <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4 font-squid relative">
@@ -136,20 +132,7 @@ WARNING: READ CAREFULLY BEFORE PROCEEDING
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50">
-          <div className="bg-gray-900 p-6 rounded-lg border-2 border-pink-600 max-w-2xl max-h-[80vh] overflow-y-auto">
-            <div className="prose prose-invert">
-              <h2 className="text-2xl text-pink-600 mb-4">User Agreement</h2>
-              <div className="whitespace-pre-line text-white">
-                {agreement}
-              </div>
-            </div>
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="mt-6 px-4 py-2 bg-pink-600 text-white rounded hover:bg-pink-500 transition-colors"
-            >
-              Close
-            </button>
-          </div>
+          <Agreement onClose={() => setIsModalOpen(false)} />
         </div>
       )}
 
