@@ -64,7 +64,7 @@ function Elimination() {
                 src={`https://ybg-back.vercel.app/user/${user.id}/audio`}
               />
             )}
-            <div className="absolute bottom-0 right-0 bg-red-500 text-white p-1 rounded-full w-8 h-8 flex items-center justify-center">
+            <div className="absolute bottom-0 right-0 font-digital text-green-900 p-1 rounded-full w-8 h-8 flex items-center justify-center">
               {user.player_number}
             </div>
           </div>
