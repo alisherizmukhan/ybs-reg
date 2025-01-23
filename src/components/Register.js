@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Agreement from "./Agreement";
 import Location from "./Location";
 import "../fonts.css";
+import YBGLogo from "../ybg_logo.png";
+import BackgroundImage from "../bg.jpg";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -51,7 +53,14 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4 font-squid relative">
+    <div 
+      className="min-h-screen bg-black flex flex-col items-center justify-center p-4 font-squid relative bg-cover bg-center bg-no-repeat"
+      style={{ 
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${BackgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    >
       {/* Decorative circles */}
       <div className="absolute top-8 left-8">
         <div className="w-16 h-16 border-4 border-pink-600 rounded-full opacity-50 animate-pulse" />
@@ -61,13 +70,15 @@ const Register = () => {
       </div>
 
       <div className="w-full max-w-md animate-fadeIn">
-        <h1 className="text-5xl md:text-6xl text-center mb-12 text-pink-600 font-bold tracking-wider">
-          YOUR BEST GAME
-        </h1>
+        <img 
+          src={YBGLogo} 
+          alt="Your Best Game Logo" 
+          className="mx-auto mb-12 max-w-full h-auto"
+        />
 
         <form
           onSubmit={handleSubmit}
-          className="space-y-6 bg-gray-900 p-8 rounded-lg border-2 border-pink-600"
+          className="space-y-6 bg-gray-900/80 p-8 rounded-lg border-2 border-pink-600"
         >
           <div className="space-y-4">
             <div className="relative group">
