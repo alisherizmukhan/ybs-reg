@@ -1,7 +1,20 @@
 @font-face {
-    font-family: 'SquidGameFont';
-    src: url('./fonts/SquidGameFont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
+  font-family: "SquidGameFont";
+  src: url("./fonts/SquidGameFont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("./fonts/Gilroy-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.font-squid {
+  font-family: "SquidGameFont", sans-serif;
+}
+
+.font-gilroy {
+  font-family: "Gilroy", sans-serif;
+}

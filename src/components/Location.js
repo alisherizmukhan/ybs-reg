@@ -1,19 +1,23 @@
 import React from 'react';
 
-const Location = ({ onClose }) => {
+const Location = ({ onClose, playerNumber }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50">
       <div className="bg-gray-900 p-6 rounded-lg border-2 border-pink-600 max-w-lg w-full max-h-[90vh] overflow-y-auto animate-fadeIn">
         <div className="text-center mb-6">
           <h2 className="text-3xl text-pink-600 font-bold mb-2">CONGRATULATIONS!</h2>
-          <div className="text-xl text-pink-400 font-bold mb-1">YOU'RE IN THE GAME</div>
-          <div className="text-lg text-yellow-500">Your journey begins now...</div>
+          <div className="text-xl text-pink-400 font-bold mb-1">
+            YOU'RE IN THE GAME
+          </div>
+          <div className="text-lg text-yellow-500">
+            {`Welcome, Player ${playerNumber}`}
+          </div>
         </div>
 
         <div className="space-y-4 text-white">
           <div className="text-center bg-gray-800 p-4 rounded-lg border border-pink-500">
             <h3 className="text-xl text-pink-500 font-bold mb-3">EVENT DETAILS</h3>
-            
+
             <div className="space-y-3">
               <div className="space-y-1">
                 <div className="text-pink-400 font-bold">DATE</div>
@@ -33,8 +37,14 @@ const Location = ({ onClose }) => {
           </div>
 
           <div className="text-center text-gray-300 italic text-sm">
-            <p>A confirmation email with detailed instructions will be sent to you shortly.</p>
-            <p className="mt-1">Remember: punctuality is crucial. Late arrivals will be eliminated.</p>
+            <p>
+              A confirmation email with detailed instructions will be sent to
+              you shortly.
+            </p>
+            <p className="mt-1">
+              Remember: punctuality is crucial. Late arrivals will be
+              eliminated.
+            </p>
           </div>
 
           <div className="text-center text-yellow-500 font-bold text-sm">

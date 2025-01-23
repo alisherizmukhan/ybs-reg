@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
-import Agreement from './Agreement';
-import Location from './Location';
-import '../fonts.css';
+import React, { useState } from "react";
+import Agreement from "./Agreement";
+import Location from "./Location";
+import "../fonts.css";
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    surname: ''
+    name: "",
+    surname: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showLocation, setShowLocation] = useState(false);
   const [isAgreed, setIsAgreed] = useState(false);
+  const [playerNumber, setPlayerNumber] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -27,7 +28,7 @@ const Register = () => {
       return;
     }
     setIsLoading(true);
-    
+
     try {
       const response = await fetch("https://ybg-back.vercel.app/register", {
         method: "POST",
@@ -36,6 +37,7 @@ const Register = () => {
       });
       const data = await response.json();
       if (response.ok) {
+        setPlayerNumber(data.player_number);
         setShowLocation(true);
       } else {
         alert(data.message);
@@ -57,13 +59,13 @@ const Register = () => {
       <div className="absolute bottom-8 right-8">
         <div className="w-16 h-16 border-4 border-pink-600 transform rotate-45 opacity-50 animate-pulse" />
       </div>
-      
+
       <div className="w-full max-w-md animate-fadeIn">
         <h1 className="text-5xl md:text-6xl text-center mb-12 text-pink-600 font-bold tracking-wider">
           YOUR BEST GAME
         </h1>
 
-        <form 
+        <form
           onSubmit={handleSubmit}
           className="space-y-6 bg-gray-900 p-8 rounded-lg border-2 border-pink-600"
         >
@@ -117,29 +119,24 @@ const Register = () => {
             </label>
           </div>
 
-          {/* Test Button */}
-          <button
-            type="button"
-            onClick={() => setShowLocation(true)}
-            className="w-full py-3 rounded-lg text-lg font-bold text-white bg-purple-600 hover:bg-purple-500
-                     transition-all duration-300 transform hover:scale-105 active:scale-95"
-          >
-            Test Location Modal
-          </button>
 
           <button
             type="submit"
             disabled={isLoading || !isAgreed}
             className={`w-full py-4 rounded-lg text-xl font-bold text-white 
-              ${isLoading || !isAgreed ? 'bg-pink-800 cursor-not-allowed' : 'bg-pink-600 hover:bg-pink-500'} 
+              ${
+                isLoading || !isAgreed
+                  ? "bg-pink-800 cursor-not-allowed"
+                  : "bg-pink-600 hover:bg-pink-500"
+              } 
               transition-all duration-300 transform hover:scale-105 active:scale-95`}
           >
             {isLoading ? (
               <div className="flex items-center justify-center">
-                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"/>
+                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white" />
               </div>
             ) : (
-              'ENTER THE GAME'
+              "ENTER THE GAME"
             )}
           </button>
         </form>
@@ -154,13 +151,16 @@ const Register = () => {
 
       {/* Location Modal */}
       {showLocation && (
-        <Location onClose={() => setShowLocation(false)} />
+        <Location
+          onClose={() => setShowLocation(false)}
+          playerNumber={playerNumber}
+        />
       )}
 
       <style jsx>{`
         @font-face {
-          font-family: 'SquidGameFont';
-          src: url('/fonts/SquidGameFont.ttf') format('truetype');
+          font-family: "SquidGameFont";
+          src: url("/fonts/SquidGameFont.ttf") format("truetype");
         }
         @keyframes fadeIn {
           from {
@@ -172,12 +172,12 @@ const Register = () => {
             transform: scale(1);
           }
         }
-        
+
         .animate-fadeIn {
           animation: fadeIn 0.5s ease-out forwards;
         }
         .font-squid {
-          font-family: 'SquidGameFont', sans-serif;
+          font-family: "SquidGameFont", sans-serif;
         }
       `}</style>
     </div>
