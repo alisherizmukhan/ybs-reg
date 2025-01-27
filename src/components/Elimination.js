@@ -157,7 +157,8 @@ function Elimination() {
         }
 
         .diamond.eliminated {
-          opacity: 0.2;
+          opacity: 0.15;
+          filter: grayscale(100%);
         }
 
         .diamond-image {
