@@ -116,7 +116,7 @@ function Elimination() {
 
   return (
     <div className="bg-black min-h-screen text-white p-8">
-      <h1 className="text-4xl text-red-500 text-center mb-8 uppercase tracking-widest">
+      <h1 className="text-4xl text-red-500 text-center mb-8 uppercase tracking-widest font-squid">
         Elimination Board
       </h1>
       {renderDiamondGrid()}
