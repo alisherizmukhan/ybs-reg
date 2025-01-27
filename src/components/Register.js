@@ -89,7 +89,7 @@ const Register = () => {
                 onChange={handleChange}
                 className="w-full px-4 py-3 bg-gray-800 text-white border-2 border-pink-600 rounded-lg 
                          focus:outline-none focus:border-pink-400 transition-colors duration-300
-                         transform hover:scale-[1.02] focus:scale-[1.02]"
+                         transform hover:scale-[1.02] focus:scale-[1.02] font-gilroy"
                 placeholder="Enter your name"
                 required
               />
@@ -103,7 +103,7 @@ const Register = () => {
                 onChange={handleChange}
                 className="w-full px-4 py-3 bg-gray-800 text-white border-2 border-pink-600 rounded-lg 
                          focus:outline-none focus:border-pink-400 transition-colors duration-300
-                         transform hover:scale-[1.02] focus:scale-[1.02]"
+                         transform hover:scale-[1.02] focus:scale-[1.02] font-gilroy"
                 placeholder="Enter your surname"
                 required
               />
@@ -118,7 +118,7 @@ const Register = () => {
               onChange={(e) => setIsAgreed(e.target.checked)}
               className="w-4 h-4 border-pink-600 rounded focus:ring-pink-500"
             />
-            <label htmlFor="agreement" className="text-sm">
+            <label htmlFor="agreement" className="text-sm font-gilroy">
               By clicking on the checkmark, you agree to the{" "}
               <button
                 type="button"

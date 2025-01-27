@@ -9,7 +9,7 @@ const Location = ({ onClose, playerNumber }) => {
           <div className="text-xl text-pink-400 font-bold mb-1">
             YOU'RE IN THE GAME
           </div>
-          <div className="text-lg text-yellow-500">
+          <div className="text-lg text-yellow-500 font-gilroy">
             {`Welcome, Player ${playerNumber}`}
           </div>
         </div>
@@ -36,7 +36,7 @@ const Location = ({ onClose, playerNumber }) => {
             </div>
           </div>
 
-          <div className="text-center text-gray-300 italic text-sm">
+          <div className="text-center text-gray-300 italic text-sm font-gilroy">
             <p>
               A confirmation email with detailed instructions will be sent to
               you shortly.
