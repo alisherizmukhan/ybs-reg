@@ -3,7 +3,7 @@ import Agreement from "./Agreement";
 import Location from "./Location";
 import "../fonts.css";
 import YBGLogo from "../ybg_logo.png";
-import BackgroundImage from "../bg.jpg";
+import BackgroundImage from "../bg.png";
 
 const Register = () => {
   const [formData, setFormData] = useState({
